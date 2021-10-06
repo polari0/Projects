@@ -4,24 +4,14 @@ using UnityEngine;
 
 public class WaitScript : MonoBehaviour
 {
-    public static IEnumerator Wait1()
+    public static bool lockBool = false;
+
+    public static IEnumerator Wait1(float howLongToWait)
     {
-        yield return new WaitForSeconds(1);
-    }
-    public IEnumerator Wait2()
-    {
-        yield return new WaitForSeconds(2);
-    }
-    public IEnumerator Wait3()
-    {
-        yield return new WaitForSeconds(3);
-    }
-    public IEnumerator Wait4()
-    {
-        yield return new WaitForSeconds(4);
-    }
-    public IEnumerator Wait5()
-    {
-        yield return new WaitForSeconds(5);
+
+
+        lockBool = !lockBool;
+        yield return new WaitForSeconds(howLongToWait);
+        lockBool = !lockBool;
     }
 }
